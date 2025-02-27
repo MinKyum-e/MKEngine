@@ -1,7 +1,28 @@
 #pragma once
-class Application
+#include "Commoninclude.h"
+#include "GameObject.h"
+
+namespace mk
 {
-public:
-	void test();
-};
+	class Application
+	{
+	public:
+		Application();
+		~Application();
+
+		void Initialize(HWND hwnd);
+		void Run();
+		void Update();
+		void LateUpdate();
+		void Render();
+
+	private:
+		HWND mHwnd;
+		HDC mHdc;
+
+		GameObject obj1;
+		GameObject obj2;
+	};
+}
+
 

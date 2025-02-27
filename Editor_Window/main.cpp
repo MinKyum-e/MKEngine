@@ -7,7 +7,7 @@
 #include "..\\MKEngine_SOURCE\\mkApplication.h"
 
 
-Application app;
+mk::Application application;
 
 #define MAX_LOADSTRING 100
 
@@ -33,7 +33,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램 인스턴스 핸�
 
 
     // TODO: 여기에 코드를 입력합니다.
-    app.test();
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -65,9 +64,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램 인스턴스 핸�
         }
         else
         {
-            int a = 0;
-            //메시지가 없을경우 여기서 처리
-            //게임 로직이 돌아가면 됨
+            application.Run();
         }
     }
 
@@ -122,12 +119,14 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, 600,600, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, CW_USEDEFAULT,0, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {
       return FALSE;
    }
+   application.Initialize(hWnd);
+
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
@@ -171,15 +170,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
 
-            HBRUSH brush = CreateSolidBrush(RGB(0, 0, 255));
-            HBRUSH oldBruch = (HBRUSH)SelectObject(hdc, brush);
-            Rectangle(hdc, 100, 100, 200, 200);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-
-            (HBRUSH)SelectObject(hdc, oldBruch);
-            DeleteObject(brush);
-
-            Ellipse(hdc, 200, 200 , 300, 300);
+          
             EndPaint(hWnd, &ps);
         }
         break;
