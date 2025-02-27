@@ -7,7 +7,6 @@ namespace mk
 	{
 	public:
 		GameObject();
-		GameObject(int team);
 		~GameObject();
 
 		void Update();
@@ -25,7 +24,6 @@ namespace mk
 	private:
 		float mX;
 		float mY;
-		int team;
 
 	};
 }

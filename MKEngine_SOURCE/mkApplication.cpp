@@ -8,7 +8,6 @@ namespace mk
 		, mHdc(nullptr)
 	{
 		obj1 = GameObject();
-		obj2 = GameObject(1);
 	}
 	Application::~Application()
 	{
@@ -19,6 +18,8 @@ namespace mk
 	{
 		mHwnd = hwnd;
 		mHdc = GetDC(mHwnd);
+
+		input.Initialize();
 	}
 
 	void Application::Run()
@@ -30,8 +31,8 @@ namespace mk
 
 	void Application::Update()
 	{
+		Input::Update();
 		obj1.Update();
-		obj2.Update();
 		
 	}
 	void Application::LateUpdate()
@@ -43,6 +44,5 @@ namespace mk
 	{
 
 		obj1.Render(mHdc);
-		obj2.Render(mHdc);
 	}
 }
