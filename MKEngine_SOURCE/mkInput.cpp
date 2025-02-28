@@ -1,5 +1,6 @@
 #include "mkInput.h"
 
+
 namespace mk
 {
 	int ASCI[(UINT)eKeyCode::END] =
@@ -14,45 +15,76 @@ namespace mk
 	
 	void Input::Initialize()
 	{
+		createKeys();
+	}
+
+	void Input::createKeys()
+	{
 		for (size_t i = 0; i < (UINT)eKeyCode::END; i++)
 		{
 			Key tKey = {};
 			tKey.isPressed = false;
-			tKey.keyPad = (eKeyCode)i;
+			tKey.keyCode = (eKeyCode)i;
 			tKey.keyState = eKeyState::None;
 			keyVector.push_back(tKey);
 		}
 	}
+
 	void Input::Update()
 	{
-		for (int i = 0; i < keyVector.size(); i++)
+		updateKeys();
+	}
+
+	void Input::updateKeys()
+	{
+		std::for_each(keyVector.begin(), keyVector.end(),
+			[](Key& key)->void {
+				updateKey(key);
+			});
+	}
+
+	void Input::updateKey(Input::Key& key)
+	{
+		if (isKeyDown(key.keyCode))
 		{
-			if (GetAsyncKeyState(ASCI[i]) & 0x8000)
-			{
-				if (keyVector[i].isPressed)
-				{
-					keyVector[i].keyState = eKeyState::Pressed;
-				}
-				else
-				{
-					keyVector[i].keyState = eKeyState::Down;
-				}
-				keyVector[i].isPressed = true;
-			}
-			else
-			{
-				if (keyVector[i].isPressed)
-				{
-					keyVector[i].keyState = eKeyState::Up;
-				}
-				else
-				{
-					keyVector[i].keyState = eKeyState::None;
-				}
-				keyVector[i].isPressed = false;
-			}
+			updateKeyDown(key);
+		}
+		else
+		{
+			updateKeyUp(key);
 		}
 	}
 
+	void Input::updateKeyDown(Input::Key& key)
+	{
+		if (key.isPressed)
+		{
+			key.keyState = eKeyState::Pressed;
+		}
+		else
+		{
+			key.keyState = eKeyState::Down;
+		}
+		key.isPressed = true;
+	}
+
+	void Input::updateKeyUp(Input::Key& key)
+	{
+		if (key.isPressed)
+		{
+			key.keyState = eKeyState::Up;
+		}
+		else
+		{
+			key.keyState = eKeyState::None;
+		}
+		key.isPressed = false;
+	}
+
+
+	bool Input::isKeyDown(eKeyCode e)
+	{
+		return GetAsyncKeyState(ASCI[(UINT)e]) & 0x8000;
+	}
 	
 }

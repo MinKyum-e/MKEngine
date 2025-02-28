@@ -25,21 +25,38 @@ namespace mk
 
 		struct Key
 		{
-			eKeyCode keyPad;
+			eKeyCode keyCode;
 			eKeyState keyState;
 			bool isPressed;
 		};
 
-		static bool GetKeyDown(eKeyCode e) { return keyVector[(UINT)e].keyState == eKeyState::Down; }
 		static bool GetKeyPressed(eKeyCode e) { return keyVector[(UINT)e].keyState == eKeyState::Pressed; }
+		static bool GetKeyDown(eKeyCode e) { return keyVector[(UINT)e].keyState == eKeyState::Down; }
 		static bool GetKeyUp(eKeyCode e) { return keyVector[(UINT)e].keyState == eKeyState::Up; }
+
+
+
+		
 
 		static void Initialize();
 		static void Update();
+
+
 		
 
 	private:
+		
+		static void createKeys();
+		static void updateKeys();
+		static bool isKeyDown(eKeyCode e);
+		static void updateKey(Key& key);
+		static void updateKeyDown(Key& key);
+		static void updateKeyUp(Key& key);
+
+	private:
 		static std::vector<Key> keyVector;
+
+
 	};
 
 }
