@@ -2,6 +2,7 @@
 #include "Commoninclude.h"
 #include "GameObject.h"
 #include "mkInput.h"
+#include "mktime.h"
 
 namespace mk
 {
@@ -18,11 +19,11 @@ namespace mk
 		void Render();
 
 	private:
-		Input input;
 		HWND mHwnd;
 		HDC mHdc;
 
 		GameObject obj1;
+		
 	};
 }
 

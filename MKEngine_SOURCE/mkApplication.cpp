@@ -19,7 +19,9 @@ namespace mk
 		mHwnd = hwnd;
 		mHdc = GetDC(mHwnd);
 
-		input.Initialize();
+		Input::Initialize();
+		Time::Initialize();
+		
 	}
 
 	void Application::Run()
@@ -32,6 +34,7 @@ namespace mk
 	void Application::Update()
 	{
 		Input::Update();
+		Time::Update();
 		obj1.Update();
 		
 	}
@@ -42,7 +45,7 @@ namespace mk
 
 	void Application::Render()
 	{
-
+		Time::Render(mHdc);
 		obj1.Render(mHdc);
 	}
 }

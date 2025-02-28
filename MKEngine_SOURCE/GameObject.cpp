@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include "mkInput.h"
+#include "mkTime.h"
 
 namespace mk
 {
@@ -16,26 +17,26 @@ namespace mk
 
 	void GameObject::Update()
 	{
+		const int speed = 100.0f;
+		if ( Input::GetKeyPressed(eKeyCode::A) || Input::GetKeyPressed(eKeyCode::LEFT))
+		{
+			mX -= speed * Time::DeltaTime();
+		}
 
-			if ( Input::GetKeyPressed(eKeyCode::A) || Input::GetKeyPressed(eKeyCode::LEFT))
-			{
-				mX -= 0.01f;
-			}
+		if (Input::GetKeyPressed(eKeyCode::D) || Input::GetKeyPressed(eKeyCode::RIGHT))
+		{
+			mX += speed * Time::DeltaTime();
+		}
 
-			if (Input::GetKeyPressed(eKeyCode::D) || Input::GetKeyPressed(eKeyCode::RIGHT))
-			{
-				mX += 0.01f;
-			}
+		if (Input::GetKeyPressed(eKeyCode::W) || Input::GetKeyPressed(eKeyCode::UP))
+		{
+			mY -= speed * Time::DeltaTime();
+		}
 
-			if (Input::GetKeyPressed(eKeyCode::W) || Input::GetKeyPressed(eKeyCode::UP))
-			{
-				mY -= 0.01f;
-			}
-
-			if (Input::GetKeyPressed(eKeyCode::S) || Input::GetKeyPressed(eKeyCode::DOWN))
-			{
-				mY += 0.01f;
-			}
+		if (Input::GetKeyPressed(eKeyCode::S) || Input::GetKeyPressed(eKeyCode::DOWN))
+		{
+			mY += speed * Time::DeltaTime();
+		}
 	
 	}
 
