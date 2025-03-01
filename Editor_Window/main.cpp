@@ -35,6 +35,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램 인스턴스 핸�
 
     // TODO: 여기에 코드를 입력합니다.
 
+
+
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_EDITORWINDOW, szWindowClass, MAX_LOADSTRING);
@@ -119,14 +121,17 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
+   const UINT width = 1600;
+   const UINT height = 900;
+
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT,0, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {
       return FALSE;
    }
-   application.Initialize(hWnd);
+   application.Initialize(hWnd, width, height);
 
 
    ShowWindow(hWnd, nCmdShow);
