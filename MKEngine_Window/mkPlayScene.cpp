@@ -1,5 +1,8 @@
 #include "mkPlayScene.h"
 #include "mkGameObject.h"
+#include "mkPlayer.h"
+#include "mkSpriteRenderer.h"
+#include "mkTransform.h"
 
 namespace mk
 {
@@ -11,11 +14,30 @@ namespace mk
 	}
 	void PlayScene::Initialize()
 	{
-		for (size_t i = 0; i < 100; i++)
 		{
-			GameObject* obj = new GameObject();
-			obj->SetPosition(rand() % 1600, rand() % 900);
-			AddGameObject(obj);
+			Player* player = new Player();
+			Transform* tr = player->AddComponent<Transform>();
+			tr->SetName(L"TR");
+			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+
+			tr->SetPosition(100, 100);
+
+			AddGameObject(player);
+
+		}
+
+		{
+			Player* player = new Player();
+			Transform* tr = player->AddComponent<Transform>();
+			tr->SetName(L"TR");
+			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+
+			tr->SetPosition(1000, 100);
+
+			AddGameObject(player);
+
 		}
 
 	}

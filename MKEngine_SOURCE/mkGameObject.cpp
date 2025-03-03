@@ -5,45 +5,33 @@
 namespace mk
 {
 	GameObject::GameObject()
-		:mX(0.0f)
-		, mY(0.0f)
+		:mComponents({})
 	{
-	}
 
-	GameObject::GameObject(wchar_t name)
-		:mX(0.0f)
-		, mY(0.0f) 
-	{
 	}
 
 
 	GameObject::~GameObject()
 	{
+		for (Component* comp : mComponents)
+		{
+			delete comp;
+		}
 	}
 
-
+	void GameObject::Initialize()
+	{
+		for (Component* comp : mComponents)
+		{
+			comp->Initialize();
+		}
+	}
 
 	void GameObject::Update()
 	{
-		const int speed = 100.0f;
-		if ( Input::GetKeyPressed(eKeyCode::A) || Input::GetKeyPressed(eKeyCode::LEFT))
+		for (Component* comp : mComponents)
 		{
-			mX -= speed * Time::DeltaTime();
-		}
-
-		if (Input::GetKeyPressed(eKeyCode::D) || Input::GetKeyPressed(eKeyCode::RIGHT))
-		{
-			mX += speed * Time::DeltaTime();
-		}
-
-		if (Input::GetKeyPressed(eKeyCode::W) || Input::GetKeyPressed(eKeyCode::UP))
-		{
-			mY -= speed * Time::DeltaTime();
-		}
-
-		if (Input::GetKeyPressed(eKeyCode::S) || Input::GetKeyPressed(eKeyCode::DOWN))
-		{
-			mY += speed * Time::DeltaTime();
+			comp->Update();
 		}
 	
 	}
@@ -52,20 +40,19 @@ namespace mk
 
 	void GameObject::LateUpdate()
 	{
-
+		for (Component* comp : mComponents)
+		{
+			comp->LateUpdate();
+		}
 	}
 
 
 	void GameObject::Render(HDC hdc)
 	{
-		
-		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
-		Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
-		SelectObject(hdc, oldBrush);
-		DeleteObject(blueBrush);
-		
-		
+		for (Component* comp : mComponents)
+		{
+			comp->Render(hdc);
+		}
 		
 	}
 

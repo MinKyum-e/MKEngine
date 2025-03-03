@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Commoninclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkEntity.h" />
@@ -24,6 +25,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mkTime.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mkComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkEntity.cpp" />

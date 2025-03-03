@@ -19,11 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\MKEngine_SOURCE\mkTransform.h" />
     <ClInclude Include="mkLoadScenes.h" />
+    <ClInclude Include="mkPlayer.h" />
     <ClInclude Include="mkPlayScene.h" />
+    <ClInclude Include="mkSpriteRenderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\MKEngine_SOURCE\mkTransform.cpp" />
+    <ClCompile Include="mkPlayer.cpp" />
     <ClCompile Include="mkPlayScene.cpp" />
+    <ClCompile Include="mkSpriteRenderer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

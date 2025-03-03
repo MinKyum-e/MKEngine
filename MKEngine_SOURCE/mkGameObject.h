@@ -1,31 +1,47 @@
 #pragma once
 #include "Commoninclude.h"
-#include "mkEntity.h"
+#include "mkComponent.h"
+
+
 namespace mk
 {
-	class GameObject : public Entity
+	class GameObject 
 	{
 	public:
 		GameObject();
-		GameObject(wchar_t name);
 		~GameObject();
 
-		void Update();
-		void LateUpdate();
-		void Render(HDC hwnd);
+		virtual void Initialize();
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC hwnd);
 
-		void SetPosition(float x, float y)
+
+		template<typename T>
+		T* AddComponent()
 		{
-			mX = x;
-			mY = y;
+			T* component = new T();
+			component->SetOwner(this);
+			mComponents.push_back(component);
+			return component;
 		}
-		float GetPositionX() { return mX; }
-		float GetPositionY() { return mY; }
+
+		template<typename T>
+		T* GetComponent()
+		{
+			T* component = nullptr;
+
+			for (Component* comp : mComponents)
+			{
+				component = dynamic_cast<T*>(comp);
+				if (component)
+					break;
+			}
+			return component;
+		}
 
 	private:
-		float mX;
-		float mY;
-
+		std::vector<Component* > mComponents;
 	};
 }
 
