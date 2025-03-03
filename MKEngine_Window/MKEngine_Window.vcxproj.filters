@@ -5,30 +5,30 @@
       <UniqueIdentifier>{45d6b19f-221d-42bb-92f6-d20362905057}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents">
-      <UniqueIdentifier>{f4f1fe90-9437-4b11-98c6-16b1a668a475}</UniqueIdentifier>
+      <UniqueIdentifier>{969ca6e2-6659-4209-bda0-fbaca3d66fee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mkLoadScenes.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="mkPlayScene.h" />
-    <ClInclude Include="..\MKEngine_SOURCE\mkTransform.h">
+    <ClInclude Include="mkPlayScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="mkPlayer.h">
       <Filter>Contents</Filter>
     </ClInclude>
-    <ClInclude Include="mkSpriteRenderer.h">
-      <Filter>Contents</Filter>
-    </ClInclude>
-    <ClInclude Include="mkPlayer.h" />
+    <ClInclude Include="mkTitleScene.h" />
+    <ClInclude Include="mkEndScene.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mkPlayScene.cpp" />
-    <ClCompile Include="..\MKEngine_SOURCE\mkTransform.cpp">
+    <ClCompile Include="mkPlayScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="mkPlayer.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
-    <ClCompile Include="mkSpriteRenderer.cpp">
-      <Filter>Contents</Filter>
-    </ClCompile>
-    <ClCompile Include="mkPlayer.cpp" />
+    <ClCompile Include="mkTitleScene.cpp" />
+    <ClCompile Include="mkEndScene.cpp" />
   </ItemGroup>
 </Project>

@@ -8,8 +8,13 @@
 #include "..\\MKEngine_SOURCE\\mkApplication.h"
 #include "..\\MKEngine_Window\\mkLoadScenes.h"
 
-
+//high level interface
 mk::Application application;
+
+//img render
+ULONG_PTR gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
+
 
 #define MAX_LOADSTRING 100
 
@@ -72,16 +77,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램 인스턴스 핸�
         }
     }
 
-    //// 기본 메시지 루프입니다:
-    //while (GetMessage(&msg, nullptr, 0, 0))
-    //{
-    //    if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-    //    {
-    //        TranslateMessage(&msg);
-    //        DispatchMessage(&msg);
-    //    }
-    //}
-
+     
+    Gdiplus::GdiplusShutdown(gpToken);
     return (int) msg.wParam;
 }
 
@@ -137,6 +134,14 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   Gdiplus::Status status =  Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+   if (status != Gdiplus::Ok)
+   {
+       // 초기화 실패 처리
+       std::cout << "GDI plus startup error" << std::endl;
+       return -1;
+   }
 
    //load Scenes
    mk::LoadScenes();

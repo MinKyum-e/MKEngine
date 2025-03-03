@@ -14,31 +14,7 @@ namespace mk
 	}
 	void PlayScene::Initialize()
 	{
-		{
-			Player* player = new Player();
-			Transform* tr = player->AddComponent<Transform>();
-			tr->SetName(L"TR");
-			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
 
-			tr->SetPosition(100, 100);
-
-			AddGameObject(player);
-
-		}
-
-		{
-			Player* player = new Player();
-			Transform* tr = player->AddComponent<Transform>();
-			tr->SetName(L"TR");
-			SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-
-			tr->SetPosition(1000, 100);
-
-			AddGameObject(player);
-
-		}
 
 	}
 

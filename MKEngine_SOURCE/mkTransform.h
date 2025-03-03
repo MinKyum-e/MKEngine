@@ -2,6 +2,7 @@
 #include "mkComponent.h"
 namespace mk
 {
+	using namespace math;
 	class Transform : public Component
 	{
 	public:
@@ -10,17 +11,15 @@ namespace mk
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void SetPosition(float x, float y)
+		void SetPosition(Vector2 pos)
 		{
-			mX = x;
-			mY = y;
+			mPosition.x = pos.x;
+			mPosition.y = pos.y;
 		}
-		float GetX() { return mX; }
-		float GetY() { return mY; }
+		Vector2 GetPosition() { return mPosition; }
 
 	private:
-		float mX;
-		float mY;
+		Vector2 mPosition;
 	};
 
 }
