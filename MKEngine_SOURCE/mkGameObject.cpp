@@ -1,4 +1,4 @@
-#include "GameObject.h"
+#include "mkGameObject.h"
 #include "mkInput.h"
 #include "mkTime.h"
 
@@ -10,10 +10,18 @@ namespace mk
 	{
 	}
 
+	GameObject::GameObject(wchar_t name)
+		:mX(0.0f)
+		, mY(0.0f) 
+	{
+	}
+
 
 	GameObject::~GameObject()
 	{
 	}
+
+
 
 	void GameObject::Update()
 	{

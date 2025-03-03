@@ -1,12 +1,13 @@
 #pragma once
 #include "Commoninclude.h"
-
+#include "mkEntity.h"
 namespace mk
 {
-	class GameObject
+	class GameObject : public Entity
 	{
 	public:
 		GameObject();
+		GameObject(wchar_t name);
 		~GameObject();
 
 		void Update();

@@ -6,6 +6,7 @@
 
 
 #include "..\\MKEngine_SOURCE\\mkApplication.h"
+#include "..\\MKEngine_Window\\mkLoadScenes.h"
 
 
 mk::Application application;
@@ -136,6 +137,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   //load Scenes
+   mk::LoadScenes();
 
    return TRUE;
 }

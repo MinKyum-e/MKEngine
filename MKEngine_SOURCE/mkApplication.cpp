@@ -1,5 +1,5 @@
 #include "mkApplication.h"
-
+#include "mkSceneManager.h"
 
 namespace mk
 {
@@ -11,7 +11,6 @@ namespace mk
 		, mBackHdc(nullptr)
 		, mBackBitBap(nullptr)
 	{
-		obj1 = GameObject();
 	}
 	Application::~Application()
 	{
@@ -23,6 +22,8 @@ namespace mk
 		adjectWindowRect(hwnd, width, height);
 		createBuffer(mWidth, mHeight);
 		initializeEtc();
+
+		SceneManager::Initialize();
 	}
 
 	void Application::adjectWindowRect(HWND hwnd, UINT width, UINT height)
@@ -71,7 +72,7 @@ namespace mk
 	{
 		Input::Update();
 		Time::Update();
-		obj1.Update();
+		SceneManager::Update();
 		
 	}
 	void Application::LateUpdate()
@@ -84,9 +85,7 @@ namespace mk
 		clearRenderTarget();
 
 		Time::Render(mBackHdc);
-		obj1.Render(mBackHdc);
-
-
+		SceneManager::Render(mBackHdc);
 		copyRenderTarget(mBackHdc, mHdc);
 
 	}

@@ -1,8 +1,9 @@
 #pragma once
 #include "Commoninclude.h"
-#include "GameObject.h"
+#include "mkGameObject.h"
 #include "mkInput.h"
 #include "mktime.h"
+#include "mkScene.h"
 
 namespace mk
 {
@@ -36,10 +37,7 @@ namespace mk
 		UINT mWidth;
 		UINT mHeight;
 
-
-		GameObject obj1;
-
-		
+		std::vector<Scene* > mScenes;
 	};
 }
 
