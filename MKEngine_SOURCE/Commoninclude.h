@@ -8,6 +8,8 @@
 #include<map>
 
 #include "mkMath.h"
+#include "mkEnums.h"
+
 #include<mmsystem.h>
 #include<dinput.h>
 
@@ -16,3 +18,4 @@
 
 #include <gdiplus.h>
 #pragma comment(lib, "gdiplus.lib");
+

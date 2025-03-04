@@ -40,6 +40,7 @@ namespace mk
 
 		static void Initialize();
 		static void Update();
+		static void LateUpdate();
 
 
 		

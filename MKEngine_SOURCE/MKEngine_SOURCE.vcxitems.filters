@@ -34,6 +34,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)mkTransform.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mkLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)mkScene.h">
@@ -72,6 +75,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mkTransform.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkEnums.h">
+      <Filter>Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -91,6 +100,12 @@
     </Filter>
     <Filter Include="High Level Interface">
       <UniqueIdentifier>{9a51fe05-8d05-4e84-99eb-f023faf38dcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{d67f531a-b782-4f4d-8397-a29950bceaa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enums">
+      <UniqueIdentifier>{630a6d3e-c774-40fc-8df6-343f9afa716c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -78,6 +78,8 @@ namespace mk
 	void Application::LateUpdate()
 	{
 
+		Input::LateUpdate();
+		SceneManager::LateUpdate();
 	}
 
 	void Application::Render()

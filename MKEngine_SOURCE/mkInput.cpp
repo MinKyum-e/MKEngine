@@ -86,5 +86,10 @@ namespace mk
 	{
 		return GetAsyncKeyState(ASCI[(UINT)e]) & 0x8000;
 	}
+
+	void Input::LateUpdate()
+	{
+
+	}
 	
 }

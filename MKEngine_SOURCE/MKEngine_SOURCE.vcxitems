@@ -17,10 +17,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\MKEngine_Window\mkSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Commoninclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkSceneManager.h" />
@@ -34,6 +36,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)mkApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mkLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkSceneManager.cpp" />

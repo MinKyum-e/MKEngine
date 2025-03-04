@@ -18,8 +18,12 @@
     <ClInclude Include="mkPlayer.h">
       <Filter>Contents</Filter>
     </ClInclude>
-    <ClInclude Include="mkTitleScene.h" />
-    <ClInclude Include="mkEndScene.h" />
+    <ClInclude Include="mkEndScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="mkTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mkPlayScene.cpp">
@@ -28,7 +32,11 @@
     <ClCompile Include="mkPlayer.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
-    <ClCompile Include="mkTitleScene.cpp" />
-    <ClCompile Include="mkEndScene.cpp" />
+    <ClCompile Include="mkEndScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="mkTitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

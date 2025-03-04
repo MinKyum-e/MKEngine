@@ -1,7 +1,7 @@
 #pragma once
 #include "Commoninclude.h"
-#include "mkGameObject.h"
 #include "mkEntity.h"
+#include "mkLayer.h"
 
 namespace mk
 {
@@ -11,14 +11,22 @@ namespace mk
 		Scene();
 		~Scene();
 
-		void AddGameObject(GameObject* gameObject);
+		void AddGameObject(GameObject* gameObject, eLayertpye layerType);
 
 		virtual void Initialize();
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
+
+
+		virtual void OnEnter();
+		virtual void OnExit();
+
 	private:
-		std::vector<GameObject*> mGameObjects;
+		void createLayers();
+
+	private:
+		std::vector<Layer* > mLayers;
 	};
 
 

@@ -2,6 +2,9 @@
 #include "mkPlayer.h"
 #include "mkTransform.h"
 #include "mkSpriteRenderer.h"
+#include "mkInput.h"
+#include "mkSceneManager.h"
+#include "mkLayer.h"
 
 namespace mk
 {
@@ -23,7 +26,7 @@ namespace mk
 
 			sr->ImageLoad(L"C:\\study\\MKEngine\\background.png");
 
-			AddGameObject(bg);
+			AddGameObject(bg, eLayertpye::Background);
 		}
 	}
 	void TitleScene::Update()
@@ -33,9 +36,33 @@ namespace mk
 	void TitleScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"PlayScene");
+		}
+
 	}
 	void TitleScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+		const wchar_t str[12] = L"Title Scene";
+		int len = wcsnlen_s(str, 50);
+
+		TextOut(hdc, 0, 0, str, len);
+	}
+	void TitleScene::OnEnter()
+	{
+		Scene::OnEnter();
+	}
+	void TitleScene::OnExit()
+	{
+		Scene::OnExit();
+		//for (Layer* gameObj : Scene::mLayers)
+		//{
+		//	Transform* tr = gameObj->GetComponent<Transform>();
+		//	tr->SetPosition(Vector2(0.0f, 0.0f));
+
+		//}
 	}
 }

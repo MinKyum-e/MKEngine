@@ -1,47 +1,69 @@
 #include "mkScene.h"
+#include "mkTransform.h"
 
 namespace mk
 {
 	Scene::Scene()
-		:mGameObjects({})
+		:mLayers({})
 	{
-
+		createLayers();
 	}
 	Scene::~Scene()
 	{
 
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject)
+	void Scene::AddGameObject(GameObject* gameObject, eLayertpye layerType)
 	{
-		if(gameObject)
-			mGameObjects.push_back(gameObject);
+		mLayers[UINT(layerType)]->AddGameObject(gameObject);
 	}
 
 
 	void Scene::Initialize()
 	{
-		
+		for (Layer* layer : mLayers)
+		{
+			layer->Initialize();
+		}
 	}
 	void Scene::Update()
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Update();
+			layer->Update();
 		}
 	}
 	void Scene::LateUpdate()
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->LateUpdate();
+			layer->LateUpdate();
 		}
 	}
 	void Scene::Render(HDC hdc)
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Render(hdc);
+			layer->Render(hdc);
 		}
+	}
+
+
+	void Scene::createLayers()
+	{
+		mLayers.resize((UINT)eLayertpye::Max);
+		for (size_t i = 0; i < (UINT)eLayertpye::Max; i++)
+		{
+			mLayers[i] = new Layer();
+		}
+	}
+
+	void Scene::OnEnter()
+	{
+
+	}
+	void Scene::OnExit()
+	{
+		
 	}
 }
