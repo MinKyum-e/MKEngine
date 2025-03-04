@@ -24,9 +24,9 @@ namespace mk
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"Sr");
 
-			sr->ImageLoad(L"C:\\study\\MKEngine\\background.png");
+			sr->ImageLoad(L"C:\\study\\MKEngine\\Resources\\background.png");
 
-			AddGameObject(bg, eLayertpye::Background);
+			AddGameObject(bg, enums::eLayertpye::Background);
 		}
 	}
 	void TitleScene::Update()

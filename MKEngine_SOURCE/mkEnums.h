@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace mk
+namespace mk::enums
 {
 	enum class eLayertpye
 	{

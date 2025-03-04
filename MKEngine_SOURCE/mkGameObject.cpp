@@ -1,13 +1,14 @@
 #include "mkGameObject.h"
 #include "mkInput.h"
 #include "mkTime.h"
+#include "mkTransform.h"
 
 namespace mk
 {
 	GameObject::GameObject()
 		:mComponents({})
 	{
-
+		InitializeTransform();
 	}
 
 
@@ -56,6 +57,9 @@ namespace mk
 		
 	}
 
-	
+	void GameObject::InitializeTransform()
+	{
+		AddComponent < Transform>();
+	}
 }
 

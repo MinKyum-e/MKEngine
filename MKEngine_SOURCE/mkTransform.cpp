@@ -1,17 +1,30 @@
 #include "mkTransform.h"
 
-void mk::Transform::Initialize()
-{
-}
 
-void mk::Transform::Update()
+namespace mk
 {
-}
+	Transform::Transform()
+		:mPosition()
+	{
 
-void mk::Transform::LateUpdate()
-{
-}
+	}
+	Transform::~Transform()
+	{
+	}
+	void Transform::Initialize()
+	{
+	}
 
-void mk::Transform::Render(HDC hdc)
-{
+	void Transform::Update()
+	{
+	}
+
+	void Transform::LateUpdate()
+	{
+	}
+
+	void Transform::Render(HDC hdc)
+	{
+	}
+
 }

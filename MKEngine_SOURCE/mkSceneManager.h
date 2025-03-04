@@ -12,8 +12,9 @@ namespace mk
 		{
 			T* scene = new T();
 			scene->SetName(name);
-			scene->Initialize();
 
+			mActiveScene = scene;
+			scene->Initialize();
 			mScene.insert(std::make_pair(name, scene));
 			return scene;
 		}
@@ -36,10 +37,15 @@ namespace mk
 			return iter->second;
 		}
 
+		static Scene* GetActiveScene() { return mActiveScene; }
+
 		static void Initialize();
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);
+
+
+
 
 	private:
 		static std::map<std::wstring, Scene*> mScene;

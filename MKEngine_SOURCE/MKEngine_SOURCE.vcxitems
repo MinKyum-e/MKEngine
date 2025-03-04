@@ -24,6 +24,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mkInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkTime.h" />

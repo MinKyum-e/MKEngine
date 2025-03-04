@@ -5,6 +5,9 @@
 #include "mkTransform.h"
 #include "mkInput.h"
 #include "mkSceneManager.h"
+#include "mkObject.h"
+#include "math.h"
+#include "mkSpriteRenderer.h"
 
 namespace mk
 {
@@ -16,7 +19,19 @@ namespace mk
 	}
 	void PlayScene::Initialize()
 	{
-
+		{
+			float x = 800, y= 450;
+			float num = 10;
+			float pi = 3.141592;
+			float r = 400;
+			for (int i = 0; i < num; i++)
+			{
+				Vector2 pos = Vector2(x + r * cos(pi*2 / num * i), y + r * sin(pi*2 / num * i));
+				Player* pl = object::Instantiate<Player>(enums::eLayertpye::Player, pos);
+				SpriteRenderer* sr = pl->AddComponent<SpriteRenderer>();
+				sr->ImageLoad(L"C:\\study\\MKEngine\\Resources\\circle.jpg");
+			}
+		}
 
 	}
 

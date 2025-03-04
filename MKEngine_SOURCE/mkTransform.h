@@ -6,6 +6,9 @@ namespace mk
 	class Transform : public Component
 	{
 	public:
+		Transform();
+		~Transform();
+
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;

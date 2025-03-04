@@ -11,7 +11,7 @@ namespace mk
 		Scene();
 		~Scene();
 
-		void AddGameObject(GameObject* gameObject, eLayertpye layerType);
+		void AddGameObject(GameObject* gameObject, enums::eLayertpye layerType);
 
 		virtual void Initialize();
 		virtual void Update();

@@ -75,11 +75,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mkTransform.h">
       <Filter>Component</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)mkEnums.h">
-      <Filter>Enums</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)mkLayer.h">
       <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkEnums.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -103,9 +104,6 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{d67f531a-b782-4f4d-8397-a29950bceaa9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enums">
-      <UniqueIdentifier>{630a6d3e-c774-40fc-8df6-343f9afa716c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 #include "mkPlayer.h"
+#include "mkSpriteRenderer.h"
 
 namespace mk
 {
@@ -15,6 +16,7 @@ namespace mk
 	void Player::Initialize()
 	{
 		GameObject::Initialize();
+		AddComponent<SpriteRenderer>();
 	}
 
 	void Player::Update()
