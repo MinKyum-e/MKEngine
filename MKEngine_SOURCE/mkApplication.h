@@ -19,6 +19,8 @@ namespace mk
 		void LateUpdate();
 		void Render();
 
+		HDC GetHdc() { return mHdc; }
+
 	private:
 		void adjectWindowRect(HWND hwnd, UINT width, UINT height);
 		void createBuffer(UINT width, UINT heigth);
@@ -26,6 +28,9 @@ namespace mk
 		
 		void clearRenderTarget();
 		void copyRenderTarget(HDC source, HDC dest);
+
+
+		
 	private:
 		HWND mHwnd;
 		HDC mHdc;

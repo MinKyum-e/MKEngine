@@ -5,6 +5,7 @@
 #include "mkInput.h"
 #include "mkSceneManager.h"
 #include "mkLayer.h"
+#include "mkTexture.h"
 
 namespace mk
 {
@@ -24,9 +25,12 @@ namespace mk
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"Sr");
 
-			sr->ImageLoad(L"C:\\study\\MKEngine\\Resources\\background.png");
-
-			AddGameObject(bg, enums::eLayertpye::Background);
+			
+			graphics::Texture* tex = new graphics::Texture();
+			tex->Load(L"C:\\study\\MKEngine\\Resources\\background.png");
+			sr->SetTexture(tex);
+			
+			AddGameObject(bg, enums::eLayerTpye::Background);
 		}
 	}
 	void TitleScene::Update()

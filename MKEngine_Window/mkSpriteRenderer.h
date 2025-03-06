@@ -1,6 +1,7 @@
 #pragma once
 #include "mkComponent.h"
 #include "Commoninclude.h"
+#include "mkTexture.h"
 
 namespace mk
 {
@@ -15,12 +16,13 @@ namespace mk
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void ImageLoad(const std::wstring& path);
+		void SetTexture(graphics::Texture* tex)
+		{
+			mTexture = tex;
+		}
 
 	private:
-		Gdiplus::Image* mImage;
-		UINT mWidth;
-		UINT mHeight;
+		graphics::Texture* mTexture;
 
 
 	};

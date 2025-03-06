@@ -25,8 +25,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mkLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkTransform.h" />
   </ItemGroup>
@@ -39,8 +42,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)mkInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mkResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mkResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mkTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkTransform.cpp" />
   </ItemGroup>

@@ -8,7 +8,7 @@
 namespace mk::object
 {
 	template<typename T>
-	T* Instantiate(enums::eLayertpye type)
+	T* Instantiate(enums::eLayerTpye type)
 	{
 		T* gameObject = new T();
 		Scene* activeScene = SceneManager::GetActiveScene();
@@ -18,7 +18,7 @@ namespace mk::object
 
 
 	template<typename T>
-	T* Instantiate(enums::eLayertpye type, Vector2 pos)
+	T* Instantiate(enums::eLayerTpye type, Vector2 pos)
 	{
 		T* gameObject = new T();
 		Transform* tr = gameObject->GetComponent<Transform>();

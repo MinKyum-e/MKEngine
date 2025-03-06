@@ -9,7 +9,7 @@
 #include "..\\MKEngine_Window\\mkLoadScenes.h"
 
 //high level interface
-mk::Application application;
+mk::Application application; 
 
 //img render
 ULONG_PTR gpToken;

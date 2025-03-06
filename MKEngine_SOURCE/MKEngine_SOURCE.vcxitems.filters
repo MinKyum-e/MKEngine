@@ -37,6 +37,15 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)mkLayer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mkResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mkResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mkTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)mkScene.h">
@@ -78,9 +87,20 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mkLayer.h">
       <Filter>Layer</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)mkObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkEnums.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkObject.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkTexture.h">
+      <Filter>Resource\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +124,12 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{d67f531a-b782-4f4d-8397-a29950bceaa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{71429416-f4ca-422a-97f6-a8fe0f01ef34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{930e7ade-e8bb-431d-9a14-232ff97db59a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

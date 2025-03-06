@@ -8,6 +8,7 @@
 #include "mkObject.h"
 #include "math.h"
 #include "mkSpriteRenderer.h"
+#include "mkTexture.h"
 
 namespace mk
 {
@@ -27,9 +28,13 @@ namespace mk
 			for (int i = 0; i < num; i++)
 			{
 				Vector2 pos = Vector2(x + r * cos(pi*2 / num * i), y + r * sin(pi*2 / num * i));
-				Player* pl = object::Instantiate<Player>(enums::eLayertpye::Player, pos);
+				Player* pl = object::Instantiate<Player>(enums::eLayerTpye::Player, pos);
 				SpriteRenderer* sr = pl->AddComponent<SpriteRenderer>();
-				sr->ImageLoad(L"C:\\study\\MKEngine\\Resources\\circle.jpg");
+				
+				graphics::Texture* tex = new graphics::Texture();
+
+				tex->Load(L"C:\\study\\MKEngine\\Resources\\background.png");
+				sr->SetTexture(tex);
 			}
 		}
 

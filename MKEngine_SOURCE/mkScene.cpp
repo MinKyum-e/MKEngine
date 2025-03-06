@@ -13,7 +13,7 @@ namespace mk
 
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject, enums::eLayertpye layerType)
+	void Scene::AddGameObject(GameObject* gameObject, enums::eLayerTpye layerType)
 	{
 		mLayers[UINT(layerType)]->AddGameObject(gameObject);
 	}
@@ -51,8 +51,8 @@ namespace mk
 
 	void Scene::createLayers()
 	{
-		mLayers.resize((UINT)enums::eLayertpye::Max);
-		for (size_t i = 0; i < (UINT)enums::eLayertpye::Max; i++)
+		mLayers.resize((UINT)enums::eLayerTpye::Max);
+		for (size_t i = 0; i < (UINT)enums::eLayerTpye::Max; i++)
 		{
 			mLayers[i] = new Layer();
 		}
