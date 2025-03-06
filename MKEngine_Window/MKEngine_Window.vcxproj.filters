@@ -24,6 +24,7 @@
     <ClInclude Include="mkTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="mkLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mkPlayScene.cpp">

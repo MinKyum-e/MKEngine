@@ -9,6 +9,7 @@
 #include "math.h"
 #include "mkSpriteRenderer.h"
 #include "mkTexture.h"
+#include "mkResources.h"
 
 namespace mk
 {
@@ -29,14 +30,13 @@ namespace mk
 			{
 				Vector2 pos = Vector2(x + r * cos(pi*2 / num * i), y + r * sin(pi*2 / num * i));
 				Player* pl = object::Instantiate<Player>(enums::eLayerTpye::Player, pos);
-				SpriteRenderer* sr = pl->AddComponent<SpriteRenderer>();
-				
-				graphics::Texture* tex = new graphics::Texture();
-
-				tex->Load(L"C:\\study\\MKEngine\\Resources\\background.png");
-				sr->SetTexture(tex);
+				SpriteRenderer* sr = pl->GetComponent<SpriteRenderer>();
+				sr->SetName(L"SR");
+				sr->SetTexture(Resources::Find<graphics::Texture>(L"TitleBackGround"));
+				int a = 1;
 			}
 		}
+
 
 	}
 

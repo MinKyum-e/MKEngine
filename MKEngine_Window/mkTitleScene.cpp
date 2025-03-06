@@ -5,8 +5,9 @@
 #include "mkInput.h"
 #include "mkSceneManager.h"
 #include "mkLayer.h"
+#include "mkResources.h"
 #include "mkTexture.h"
-
+#include "mkObject.h"
 namespace mk
 {
 	TitleScene::TitleScene()
@@ -17,20 +18,12 @@ namespace mk
 	}
 	void TitleScene::Initialize()
 	{
+		//게임오브젝트 만들기 전에 리소스들을 모두 Load해두자
 		{
-			Player* bg = new Player();
-			Transform* tr = bg->AddComponent<Transform>();
-			tr->SetName(L"TR");
-
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"Sr");
-
-			
-			graphics::Texture* tex = new graphics::Texture();
-			tex->Load(L"C:\\study\\MKEngine\\Resources\\background.png");
-			sr->SetTexture(tex);
-			
-			AddGameObject(bg, enums::eLayerTpye::Background);
+			Player* bg = object::Instantiate<Player>(enums::eLayerTpye::Background);
+			SpriteRenderer* sr = bg->GetComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+			sr->SetTexture(Resources::Find<graphics::Texture>(L"TitleBackGround"));
 		}
 	}
 	void TitleScene::Update()

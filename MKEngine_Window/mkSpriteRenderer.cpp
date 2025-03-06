@@ -3,7 +3,7 @@
 #include "Commoninclude.h"
 #include "mkGameObject.h"
 #include<fstream>
-
+#include "mkTime.h"
 
 namespace mk
 {
@@ -27,11 +27,30 @@ namespace mk
 
 	void SpriteRenderer::Render(HDC hdc)
 	{
+		LARGE_INTEGER start = LARGE_INTEGER();
+		LARGE_INTEGER end = LARGE_INTEGER();
+		
+
+		Time::StartTimer(&start);
+		if (mTexture == nullptr) // 텍스쳐 세팅 해주세요!
+			assert(false);
+
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
-		Gdiplus::Graphics graphics(hdc);
-		graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth(), mTexture->GetHeight()));
+
+		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
+		{
+			
+		}
+		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
+		{
+			Gdiplus::Graphics graphics(hdc);
+			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth(), mTexture->GetHeight()));
+		}
+		
+		Time::EndTimer(&end);
+		Time::ShowTimer(hdc, start, end, L"SpriteRenderTimer : ", 1000, 200, 50);
 	}
 
 }

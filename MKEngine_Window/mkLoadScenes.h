@@ -6,12 +6,13 @@
 
 namespace mk
 {
+
+
 	void LoadScenes()
 	{
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
 		SceneManager::CreateScene<TitleScene>(L"TitleScene");
 		SceneManager::CreateScene<EndScene>(L"EndScene");
-
 		SceneManager::LoadScene(L"TitleScene");
 	}
 }

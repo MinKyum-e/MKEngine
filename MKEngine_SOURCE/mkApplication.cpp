@@ -63,9 +63,23 @@ namespace mk
 
 	void Application::Run()
 	{
+		LARGE_INTEGER start = LARGE_INTEGER();
+		LARGE_INTEGER end = LARGE_INTEGER();
+
+		QueryPerformanceCounter(&start);
 		Update();
+		QueryPerformanceCounter(&end);
+		mUpdateTime.QuadPart = end.QuadPart - start.QuadPart;
+
+		QueryPerformanceCounter(&start);
 		LateUpdate();
+		QueryPerformanceCounter(&end);
+		mLateUpdateTime.QuadPart = end.QuadPart - start.QuadPart;
+
+		QueryPerformanceCounter(&start);
 		Render();
+		QueryPerformanceCounter(&end);
+		mRenderTime.QuadPart = end.QuadPart - start.QuadPart;
 	}
 
 	void Application::Update()
@@ -85,9 +99,26 @@ namespace mk
 	void Application::Render()
 	{
 		clearRenderTarget();
+		wchar_t str[50] = L"";
+		swprintf_s(str, 50, L"update : %f", static_cast<float>(mUpdateTime.QuadPart));
+
+		TextOut(mHdc, 100, 0, str, 20);
+
+		wchar_t str1[50] = L"";
+		swprintf_s(str1, 50, L"lateUpdate : %f", static_cast<float>(mLateUpdateTime.QuadPart));
+
+		TextOut(mHdc, 400, 0, str1, 20);
+
+		wchar_t str2[50] = L"";
+		swprintf_s(str2, 50, L"Render : %f", static_cast<float>(mRenderTime.QuadPart));
+
+		TextOut(mHdc, 700, 0, str2, 20);
+
+
+		SceneManager::Render(mBackHdc);
+
 
 		Time::Render(mBackHdc);
-		SceneManager::Render(mBackHdc);
 		copyRenderTarget(mBackHdc, mHdc);
 
 	}

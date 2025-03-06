@@ -7,6 +7,7 @@
 
 #include "..\\MKEngine_SOURCE\\mkApplication.h"
 #include "..\\MKEngine_Window\\mkLoadScenes.h"
+#include "..\\MKEngine_Window\\mkLoadResources.h"
 
 //high level interface
 mk::Application application; 
@@ -144,6 +145,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    }
 
    //load Scenes
+   mk::LoadResources();
    mk::LoadScenes();
 
    return TRUE;

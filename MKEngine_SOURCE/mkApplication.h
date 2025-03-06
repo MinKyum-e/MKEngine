@@ -43,6 +43,9 @@ namespace mk
 		UINT mHeight;
 
 		std::vector<Scene* > mScenes;
+		LARGE_INTEGER mUpdateTime ;
+		LARGE_INTEGER mLateUpdateTime;
+		LARGE_INTEGER mRenderTime;
 	};
 }
 

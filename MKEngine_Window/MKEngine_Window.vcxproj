@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mkEndScene.h" />
+    <ClInclude Include="mkLoadResources.h" />
     <ClInclude Include="mkLoadScenes.h" />
     <ClInclude Include="mkPlayer.h" />
     <ClInclude Include="mkPlayScene.h" />

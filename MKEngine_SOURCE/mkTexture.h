@@ -3,7 +3,7 @@
 
 namespace mk::graphics
 {
-	class Texture : Resource
+	class Texture : public Resource
 	{
 	public:
 		enum class eTextureType

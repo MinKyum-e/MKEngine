@@ -16,9 +16,9 @@ namespace mk
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void SetTexture(graphics::Texture* tex)
+		void SetTexture(graphics::Texture* texture)
 		{
-			mTexture = tex;
+			mTexture = texture;
 		}
 
 	private:

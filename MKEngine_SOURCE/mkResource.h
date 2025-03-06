@@ -15,7 +15,7 @@ namespace mk
 
 
 		std::wstring& GetPath() { return mPath; }
-		void SetPath(std::wstring& path) { mPath = path; }
+		void SetPath(const std::wstring& path) { mPath = path; }
 
 	private:
 		const enums::eResourceType mResourceType;
