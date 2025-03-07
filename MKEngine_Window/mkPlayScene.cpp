@@ -10,6 +10,7 @@
 #include "mkSpriteRenderer.h"
 #include "mkTexture.h"
 #include "mkResources.h"
+#include "mkPlayerScript.h"
 
 namespace mk
 {
@@ -35,6 +36,10 @@ namespace mk
 			sr->SetName(L"SR");
 			sr->SetTexture(Resources::Find<graphics::Texture>(L"TitleBackGround"));
 			int a = 1;
+
+
+			pl->AddComponent<PlayerScript>();
+
 		}
 		Scene::Initialize();
 

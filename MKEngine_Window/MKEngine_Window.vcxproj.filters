@@ -7,6 +7,9 @@
     <Filter Include="Contents">
       <UniqueIdentifier>{969ca6e2-6659-4209-bda0-fbaca3d66fee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{051d35ce-8bfa-458c-9b17-60fbbdf117ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mkLoadScenes.h">
@@ -25,6 +28,9 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="mkLoadResources.h" />
+    <ClInclude Include="mkPlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mkPlayScene.cpp">
@@ -38,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="mkTitleScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="mkPlayerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

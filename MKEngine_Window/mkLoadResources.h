@@ -9,3 +9,10 @@ namespace mk
 		Resources::Load<graphics::Texture>(L"TitleBackGround", L"C:\\study\\MKEngine\\Resources\\background.png");
 	}
 }
+
+
+//카메라
+
+//크기 조정하기
+
+// 스크립트

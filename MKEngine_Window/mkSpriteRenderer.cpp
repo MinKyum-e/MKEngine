@@ -8,7 +8,9 @@
 namespace mk
 {
 	SpriteRenderer::SpriteRenderer()
-		:mTexture(nullptr)
+		:Component(enums::eComponentType::SpriteRenderer)
+		,mTexture(nullptr)
+		, mSize(Vector2::One)
 	{
 	}
 	SpriteRenderer::~SpriteRenderer()
@@ -40,12 +42,18 @@ namespace mk
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 		{
-			
+			//BMP : doesn't have alpha 
+			//x origin pos => Location of the desired partial image
+			//transparent => remove bg pixel
+			TransparentBlt(hdc, pos.x, pos.y
+				, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y
+				, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
+				, RGB(255, 0, 255));
 		}
 		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
 		{
 			Gdiplus::Graphics graphics(hdc);
-			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth(), mTexture->GetHeight()));
+			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x * mSize.x, pos.y * mSize.y, mTexture->GetWidth(), mTexture->GetHeight()));
 		}
 		
 		Time::EndTimer(&timer);

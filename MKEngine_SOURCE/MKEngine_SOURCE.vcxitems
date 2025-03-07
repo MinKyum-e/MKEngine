@@ -29,6 +29,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mkResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkTransform.h" />
@@ -46,6 +47,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)mkResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mkScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkTransform.cpp" />

@@ -8,6 +8,7 @@ namespace mk
 	GameObject::GameObject()
 		:mComponents({})
 	{
+		mComponents.resize((UINT)enums::eComponentType::End);
 		InitializeTransform();
 	}
 
@@ -16,6 +17,8 @@ namespace mk
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			delete comp;
 		}
 	}
@@ -24,6 +27,8 @@ namespace mk
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Initialize();
 		}
 	}
@@ -32,6 +37,8 @@ namespace mk
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Update();
 		}
 	
@@ -43,6 +50,8 @@ namespace mk
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->LateUpdate();
 		}
 	}
@@ -52,6 +61,8 @@ namespace mk
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Render(hdc);
 		}
 		

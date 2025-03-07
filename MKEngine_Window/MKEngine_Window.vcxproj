@@ -23,12 +23,14 @@
     <ClInclude Include="mkLoadResources.h" />
     <ClInclude Include="mkLoadScenes.h" />
     <ClInclude Include="mkPlayer.h" />
+    <ClInclude Include="mkPlayerScript.h" />
     <ClInclude Include="mkPlayScene.h" />
     <ClInclude Include="mkTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mkEndScene.cpp" />
     <ClCompile Include="mkPlayer.cpp" />
+    <ClCompile Include="mkPlayerScript.cpp" />
     <ClCompile Include="mkPlayScene.cpp" />
     <ClCompile Include="mkTitleScene.cpp" />
   </ItemGroup>

@@ -20,10 +20,11 @@ namespace mk
 		{
 			mTexture = texture;
 		}
+		void SetSize(math::Vector2 size) { mSize = size; }
 
 	private:
 		graphics::Texture* mTexture;
-
+		math::Vector2 mSize;
 
 	};
 

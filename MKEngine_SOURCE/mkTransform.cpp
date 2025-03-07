@@ -4,7 +4,8 @@
 namespace mk
 {
 	Transform::Transform()
-		:mPosition()
+		:Component(enums::eComponentType::Trandform)
+		,mPosition(math::Vector2(0.0f, 0.0f))
 	{
 
 	}
