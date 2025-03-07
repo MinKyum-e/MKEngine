@@ -11,6 +11,7 @@
 #include "mkTexture.h"
 #include "mkResources.h"
 #include "mkPlayerScript.h"
+#include "mkCamera.h"
 
 namespace mk
 {
@@ -23,7 +24,11 @@ namespace mk
 	}
 	void PlayScene::Initialize()
 	{
-		
+		//main Camera
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerTpye::None);
+		camera->AddComponent<Camera>();
+		camera->AddComponent<PlayerScript>();
+
 		float x = 800, y= 450;
 		float num = 10;
 		float pi = 3.141592;
@@ -38,7 +43,7 @@ namespace mk
 			int a = 1;
 
 
-			pl->AddComponent<PlayerScript>();
+			//pl->AddComponent<PlayerScript>();
 
 		}
 		Scene::Initialize();

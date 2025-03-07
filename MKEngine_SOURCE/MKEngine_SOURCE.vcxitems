@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\MKEngine_Window\mkSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Commoninclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mkCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mkGameObject.h" />
@@ -36,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\MKEngine_Window\mkSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mkCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mkApplication.cpp" />

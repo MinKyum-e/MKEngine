@@ -8,6 +8,7 @@ namespace mk::enums
 		Trandform,
 		SpriteRenderer,
 		Script,
+		Camera,
 		End,
 	};
 	enum class eLayerTpye
