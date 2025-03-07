@@ -12,7 +12,7 @@
 //high level interface
 mk::Application application; 
 
-//img render
+//img render for png
 ULONG_PTR gpToken;
 Gdiplus::GdiplusStartupInput gpsi;
 
@@ -38,12 +38,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램 인스턴스 핸�
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-
-
-    // TODO: 여기에 코드를 입력합니다.
-
-
-
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_EDITORWINDOW, szWindowClass, MAX_LOADSTRING);
@@ -55,10 +49,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램 인스턴스 핸�
         return FALSE;
     }
 
+
+    //acceltable -> 단축키 매핑 테이블
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_EDITORWINDOW));
 
-    MSG msg;
 
+    //message loop
+    MSG msg;
     while (true)
     {
         if (PeekMessageW(&msg, nullptr, 0, 0, PM_REMOVE))
@@ -79,6 +76,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램 인스턴스 핸�
     }
 
      
+    //Application End 
     Gdiplus::GdiplusShutdown(gpToken);
     return (int) msg.wParam;
 }
@@ -124,27 +122,25 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    const UINT height = 900;
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr); //create window to memory & return handler 
 
    if (!hWnd)
    {
       return FALSE;
    }
-   application.Initialize(hWnd, width, height);
+
+
+   //my application initialized
+   application.Initialize(hWnd, width, height); 
 
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
-   Gdiplus::Status status =  Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
-   if (status != Gdiplus::Ok)
-   {
-       // 초기화 실패 처리
-       std::cout << "GDI plus startup error" << std::endl;
-       return -1;
-   }
 
-   //load Scenes
+    Gdiplus::Status status =  Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+    assert(status == Gdiplus::Ok && "GDI plus startup error");
+
    mk::LoadResources();
    mk::LoadScenes();
 

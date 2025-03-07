@@ -11,7 +11,6 @@ namespace mk::object
 	T* Instantiate(enums::eLayerTpye type)
 	{
 		T* gameObject = new T();
-		gameObject->Initialize();
 		Scene* activeScene = SceneManager::GetActiveScene();
 		activeScene->AddGameObject(gameObject, type);
 		return gameObject;
@@ -22,7 +21,6 @@ namespace mk::object
 	T* Instantiate(enums::eLayerTpye type, Vector2 pos)
 	{
 		T* gameObject = new T();
-		gameObject->Initialize();
 		Transform* tr = gameObject->GetComponent<Transform>();
 		tr->SetPosition(pos);
 		tr->SetName(L"TR");

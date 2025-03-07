@@ -22,32 +22,45 @@ namespace mk
 	void Time::Update()
 	{
 		QueryPerformanceCounter(&currFrequency);
-
 		float diff_frequency = static_cast<float>(currFrequency.QuadPart - prevFrequency.QuadPart);
 		deltaTimeValue = diff_frequency / cpuFrequency.QuadPart;
 		prevFrequency.QuadPart = currFrequency.QuadPart;
-		//std::cout << deltaTimeValue << std::endl;
 	}
 
 	void Time::Render(HDC hdc)
 	{
-
-
-		wchar_t str[50] = L"";
-		swprintf_s(str, 50, L"fps : %f",1.0f/ deltaTimeValue);
-		int len = wcsnlen_s(str, 50);
-
-		TextOut(hdc, 0, 0, str, len);
-
+		renderFps(hdc, 0, 0);
 	}
 
-	void Time::ShowTimer(HDC hdc, LARGE_INTEGER start, LARGE_INTEGER end, const wchar_t* timer_name, int tx, int ty, int max_length)
+
+	void Time::StartTimer(LARGE_INTEGER* timer)
+	{
+		QueryPerformanceCounter(timer); 
+	}
+
+	void Time::EndTimer(LARGE_INTEGER* timer)
+	{
+		LARGE_INTEGER curr;
+		QueryPerformanceCounter(&curr);
+		timer->QuadPart = curr.QuadPart - timer->QuadPart;
+	}
+
+	void Time::RenderTimer(HDC hdc, LARGE_INTEGER time, const wchar_t* str, int tx, int ty, int max_length)
+	{
+		wchar_t full_str[50] = L"";
+		swprintf_s(full_str, 50, L"%s : %f", str, static_cast<float>(time.QuadPart));
+		int len = wcsnlen_s(full_str, 50);
+		TextOut(hdc, tx, ty, full_str, len);
+		
+	}
+
+	void Time::renderFps(HDC hdc, int x, int y)
 	{
 		wchar_t str[50] = L"";
-		swprintf_s(str, 50, L"%s : %f", timer_name, static_cast<float>(end.QuadPart - start.QuadPart));
+		swprintf_s(str, 50, L"fps : %f", 1.0f / deltaTimeValue);
 		int len = wcsnlen_s(str, 50);
-		TextOut(hdc, tx, ty, str, len);
-		
+
+		TextOut(hdc, x, y, str, len);
 	}
 
 

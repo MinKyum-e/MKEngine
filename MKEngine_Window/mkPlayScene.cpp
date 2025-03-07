@@ -14,6 +14,7 @@
 namespace mk
 {
 	PlayScene::PlayScene()
+		:Scene()
 	{
 	}
 	PlayScene::~PlayScene()
@@ -21,21 +22,21 @@ namespace mk
 	}
 	void PlayScene::Initialize()
 	{
+		
+		float x = 800, y= 450;
+		float num = 10;
+		float pi = 3.141592;
+		float r = 400;
+		for (int i = 0; i < num; i++)
 		{
-			float x = 800, y= 450;
-			float num = 10;
-			float pi = 3.141592;
-			float r = 400;
-			for (int i = 0; i < num; i++)
-			{
-				Vector2 pos = Vector2(x + r * cos(pi*2 / num * i), y + r * sin(pi*2 / num * i));
-				Player* pl = object::Instantiate<Player>(enums::eLayerTpye::Player, pos);
-				SpriteRenderer* sr = pl->GetComponent<SpriteRenderer>();
-				sr->SetName(L"SR");
-				sr->SetTexture(Resources::Find<graphics::Texture>(L"TitleBackGround"));
-				int a = 1;
-			}
+			Vector2 pos = Vector2(x + r * cos(pi*2 / num * i), y + r * sin(pi*2 / num * i));
+			Player* pl = object::Instantiate<Player>(enums::eLayerTpye::Player, pos);
+			SpriteRenderer* sr = pl->GetComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+			sr->SetTexture(Resources::Find<graphics::Texture>(L"TitleBackGround"));
+			int a = 1;
 		}
+		Scene::Initialize();
 
 
 	}

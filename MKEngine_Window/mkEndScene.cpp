@@ -9,6 +9,7 @@
 namespace mk
 {
 	EndScene::EndScene()
+		:Scene()
 	{
 	}
 
@@ -25,6 +26,7 @@ namespace mk
 			sr->SetName(L"SR");
 			sr->SetTexture(Resources::Find<graphics::Texture>(L"TitleBackGround"));
 		}
+		Scene::Initialize();
 	}
 
 	void EndScene::Update()
@@ -34,6 +36,7 @@ namespace mk
 
 	void EndScene::LateUpdate()
 	{
+
 		Scene::LateUpdate();
 		if (Input::GetKeyDown(eKeyCode::N))
 		{
@@ -43,6 +46,7 @@ namespace mk
 
 	void EndScene::Render(HDC hdc)
 	{
+		
 		Scene::Render(hdc);
 		const wchar_t str[10] = L"End Scene";
 		int len = wcsnlen_s(str, 50);

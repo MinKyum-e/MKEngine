@@ -27,11 +27,10 @@ namespace mk
 
 	void SpriteRenderer::Render(HDC hdc)
 	{
-		LARGE_INTEGER start = LARGE_INTEGER();
-		LARGE_INTEGER end = LARGE_INTEGER();
+		Time::TIMER timer;
 		
 
-		Time::StartTimer(&start);
+		Time::StartTimer(&timer);
 		if (mTexture == nullptr) // 텍스쳐 세팅 해주세요!
 			assert(false);
 
@@ -49,8 +48,8 @@ namespace mk
 			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth(), mTexture->GetHeight()));
 		}
 		
-		Time::EndTimer(&end);
-		Time::ShowTimer(hdc, start, end, L"SpriteRenderTimer : ", 1000, 200, 50);
+		Time::EndTimer(&timer);
+		Time::RenderTimer(hdc,timer, L"SpriteRenderTimer : ", 1200, 20, 50);
 	}
 
 }

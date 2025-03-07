@@ -26,6 +26,7 @@ namespace mk
 		void createBuffer(UINT width, UINT heigth);
 		void initializeEtc();
 		
+		void renderTimers(HDC hdc);
 		void clearRenderTarget();
 		void copyRenderTarget(HDC source, HDC dest);
 
@@ -43,9 +44,9 @@ namespace mk
 		UINT mHeight;
 
 		std::vector<Scene* > mScenes;
-		LARGE_INTEGER mUpdateTime ;
-		LARGE_INTEGER mLateUpdateTime;
-		LARGE_INTEGER mRenderTime;
+		Time::TIMER mUpdateTime;
+		Time::TIMER mLateUpdateTime;
+		Time::TIMER mRenderTime;
 	};
 }
 

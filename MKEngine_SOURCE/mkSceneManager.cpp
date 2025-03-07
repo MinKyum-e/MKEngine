@@ -9,6 +9,7 @@ namespace mk
 
 	void SceneManager::Initialize()
 	{
+
 	}
 
 	void SceneManager::Update()
@@ -25,7 +26,6 @@ namespace mk
 	void SceneManager::Render(HDC hdc)
 	{
 		mActiveScene->Render(hdc);
-
 	}
 
 }

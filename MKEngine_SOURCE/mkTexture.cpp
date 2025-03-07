@@ -8,6 +8,13 @@ namespace mk::graphics
 {
 	Texture::Texture()
 		:Resource(enums::eResourceType::Texture)
+		, mType(eTextureType::None)
+		, mImage(nullptr)
+		, mBitmap(nullptr)
+		, mHdc(nullptr)
+		, mWidth(0)
+		, mHeight(0)
+
 	{
 	}
 
@@ -44,7 +51,7 @@ namespace mk::graphics
 			mType = eTextureType::Png;
 			mImage = Gdiplus::Image::FromFile(path.c_str());
 
-			if (mImage == nullptr)
+			if (mImage->GetLastStatus() != Gdiplus::Ok)
 				return S_FALSE;
 			mWidth = mImage->GetWidth();
 			mHeight = mImage->GetHeight();

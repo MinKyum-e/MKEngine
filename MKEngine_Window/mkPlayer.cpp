@@ -7,6 +7,7 @@ namespace mk
 
 	Player::Player()
 	{
+		AddComponent<SpriteRenderer>();
 	}
 
 	Player::~Player()
@@ -17,7 +18,6 @@ namespace mk
 	void Player::Initialize()
 	{
 		GameObject::Initialize();
-		AddComponent<SpriteRenderer>();
 	}
 
 	void Player::Update()
@@ -27,6 +27,7 @@ namespace mk
 
 	void Player::LateUpdate()
 	{
+
 		if (Input::GetKeyPressed(eKeyCode::D))
 		{
 			Transform* tr = GetComponent<Transform>();

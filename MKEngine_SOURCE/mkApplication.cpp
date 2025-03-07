@@ -10,6 +10,9 @@ namespace mk
 		, mWidth(0)
 		, mBackHdc(nullptr)
 		, mBackBitBap(nullptr)
+		, mUpdateTime({})
+		, mLateUpdateTime({})
+		, mRenderTime({})
 	{
 	}
 	Application::~Application()
@@ -26,6 +29,13 @@ namespace mk
 		SceneManager::Initialize();
 	}
 
+
+	/// <summary>
+	/// Just adjust it according to the actual window size excluding the toolbar
+	/// </summary>
+	/// <param name="hwnd">window handler</param>
+	/// <param name="width">wanted width </param>
+	/// <param name="height">wanted height</param>
 	void Application::adjectWindowRect(HWND hwnd, UINT width, UINT height)
 	{
 		mHwnd = hwnd;
@@ -39,7 +49,6 @@ namespace mk
 
 
 		SetWindowPos(mHwnd, nullptr, 0, 0, mWidth, mHeight, 0);
-		ShowWindow(mHwnd, true);
 	}
 
 	void Application::createBuffer(UINT width, UINT height)
@@ -63,23 +72,22 @@ namespace mk
 
 	void Application::Run()
 	{
-		LARGE_INTEGER start = LARGE_INTEGER();
-		LARGE_INTEGER end = LARGE_INTEGER();
+		Time::TIMER timer;
 
-		QueryPerformanceCounter(&start);
+		Time::StartTimer(&timer);
 		Update();
-		QueryPerformanceCounter(&end);
-		mUpdateTime.QuadPart = end.QuadPart - start.QuadPart;
+		Time::EndTimer(&timer);
+		mUpdateTime.QuadPart = timer.QuadPart;
 
-		QueryPerformanceCounter(&start);
+		Time::StartTimer(&timer);
 		LateUpdate();
-		QueryPerformanceCounter(&end);
-		mLateUpdateTime.QuadPart = end.QuadPart - start.QuadPart;
+		Time::EndTimer(&timer);
+		mLateUpdateTime.QuadPart = timer.QuadPart;
 
-		QueryPerformanceCounter(&start);
+		Time::StartTimer(&timer);
 		Render();
-		QueryPerformanceCounter(&end);
-		mRenderTime.QuadPart = end.QuadPart - start.QuadPart;
+		Time::EndTimer(&timer);
+		mRenderTime.QuadPart = timer.QuadPart;
 	}
 
 	void Application::Update()
@@ -91,7 +99,6 @@ namespace mk
 	}
 	void Application::LateUpdate()
 	{
-
 		Input::LateUpdate();
 		SceneManager::LateUpdate();
 	}
@@ -99,28 +106,20 @@ namespace mk
 	void Application::Render()
 	{
 		clearRenderTarget();
-		wchar_t str[50] = L"";
-		swprintf_s(str, 50, L"update : %f", static_cast<float>(mUpdateTime.QuadPart));
-
-		TextOut(mHdc, 100, 0, str, 20);
-
-		wchar_t str1[50] = L"";
-		swprintf_s(str1, 50, L"lateUpdate : %f", static_cast<float>(mLateUpdateTime.QuadPart));
-
-		TextOut(mHdc, 400, 0, str1, 20);
-
-		wchar_t str2[50] = L"";
-		swprintf_s(str2, 50, L"Render : %f", static_cast<float>(mRenderTime.QuadPart));
-
-		TextOut(mHdc, 700, 0, str2, 20);
-
-
+		
 		SceneManager::Render(mBackHdc);
 
-
+		renderTimers(mBackHdc);
 		Time::Render(mBackHdc);
-		copyRenderTarget(mBackHdc, mHdc);
 
+		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::renderTimers(HDC hdc)
+	{
+		Time::RenderTimer(hdc, mUpdateTime, L"UpdateTime", 400, 0, 40);
+		Time::RenderTimer(hdc, mLateUpdateTime, L"LateUpdateTime", 800, 0, 40);
+		Time::RenderTimer(hdc, mRenderTime, L"RenderTime", 1200, 0, 40);
 	}
 
 	void Application::clearRenderTarget()

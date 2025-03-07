@@ -11,6 +11,7 @@
 namespace mk
 {
 	TitleScene::TitleScene()
+		:Scene()
 	{
 	}
 	TitleScene::~TitleScene()
@@ -25,6 +26,7 @@ namespace mk
 			sr->SetName(L"SR");
 			sr->SetTexture(Resources::Find<graphics::Texture>(L"TitleBackGround"));
 		}
+		Scene::Initialize();
 	}
 	void TitleScene::Update()
 	{
